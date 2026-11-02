@@ -1,0 +1,30 @@
+services:
+  drivespatial-ui:
+    user: "${UID}:${GID}"
+    image: drivespatial-ui
+    container_name: drivespatial-ui
+    build:
+      context: drivespatial-ui
+    ports:
+      - "8080:3000"
+    depends_on:
+      - drivespatial-api
+    networks:
+      - drivespatial-net
+
+  drivespatial-api:
+    user: "${UID}:${GID}"
+    image: drivespatial-api
+    container_name: drivespatial-api
+    build:
+      context: drivespatial-api
+    ports:
+      - "8000:8000"
+    networks:
+      - drivespatial-net
+    volumes:
+      - ./drivespatial-api/data:/app/data
+
+networks:
+  drivespatial-net:
+    driver: bridge

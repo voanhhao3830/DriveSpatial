@@ -1,0 +1,13 @@
+*/data/*
+drivespatial-api/data/*
+utils/data/*
+utils/output/*
+utils/data-v2/*
+sources/*
+data/*
+utils/*
+data/*
+.DS_Store
+.vscode/*
+echo "data/" >> .gitignore
+drivespatial-ui/README.md
